@@ -5,7 +5,7 @@ import { easeInOut } from "motion";
 
 const FeaturedProducts = () => {
   return (
-    <section className="max-w-6xl mx-auto px-5">
+    <section className="max-w-4xl mx-auto px-5">
       <h2 className="mt-10 md:mt-20 pb-4 font-medium text-2xl">
         Featured products
       </h2>

@@ -10,7 +10,7 @@ const GuestLayout = ({
   return (
     <>
       <TopNavbar />
-      <main className=" my-10">{children}</main>
+      <main className="my-10">{children}</main>
       <Footer/>
     </>
   );

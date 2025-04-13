@@ -5,7 +5,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="md:mt-20">
-      <div className="max-w-6xl text-sm mx-auto px-5 py-5  dark:text-gray-500">
+      <div className="max-w-4xl text-sm mx-auto px-5 py-5  dark:text-gray-500">
         <div className="grid grid-cols-1 md:grid-cols-4 text-center md:text-start gap-5">
           <p className="font-bold text-lg text-white flex items-center justify-center">
             ARTSY.

@@ -36,7 +36,7 @@ export function MobileCarousel() {
   }, [emblaApi]);
 
   return (
-    <div className="md:hidden my-10 max-w-6xl mx-auto px-5">
+    <div className="md:hidden my-10 max-w-4xl mx-auto px-5">
       <div className="relative h-[300px] " ref={emblaRef}>
         <span className="bg-blue-400/95 blur-md w-8 h-8 inline-block absolute -top-6 right-0" />
         {images.map(({ image, height }, index) => {
