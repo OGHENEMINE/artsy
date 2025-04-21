@@ -2,13 +2,12 @@ import LargeFilterNav from "./components/FilterNav.tsx/LargeFilterNav";
 import ResponsiveMarketNav from "./components/TopNav/ResponsiveMarketNav";
 import Products from "./Products";
 
-const marketplace = ({
-  searchParams,
-}: {
+type Props = {
   searchParams?: {
     page?: string;
   };
-}) => {
+};
+const marketplace = ({ searchParams }: Props) => {
   const currentPage = parseInt(searchParams?.page || "1");
   const limit = 9;
 
