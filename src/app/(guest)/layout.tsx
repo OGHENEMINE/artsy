@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import TopNavbar from "@/components/TopNavbar";
+import ResponsiveTopNavbar from "@/components/Navbar/ResponsiveTopNavbar";
 import React from "react";
 
 const GuestLayout = ({
@@ -9,7 +9,7 @@ const GuestLayout = ({
   }>) => {
   return (
     <>
-      <TopNavbar />
+      <ResponsiveTopNavbar />
       <main className="my-10">{children}</main>
       <Footer/>
     </>

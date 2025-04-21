@@ -1,16 +1,118 @@
-import { AlignLeft, Search, ShoppingCart } from "lucide-react";
+"use client";
+import {
+  AlignLeft, MessageSquare,
+  Search,
+  ShoppingCart,
+  X
+} from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navVariants = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -10 },
+};
 
 const MobileTopNav = () => {
+  const [toggleNav, setToggleNav] = useState(false);
+  const path = usePathname();
+
+  const NavItems = [
+    {
+      title: "Home",
+      href: "/",
+      active: path === "/",
+    },
+    {
+      title: "MarketPlace",
+      href: "/marketplace",
+      active: path === "/marketplace",
+    },
+    {
+      title: "Auctions",
+      href: "/auctions",
+      active: path === "/auctions",
+    },
+    {
+      title: "Drops",
+      href: "/drop",
+      active: path === "/drop",
+    },
+  ];
+
   return (
-    <nav>
-      <div className="lg:hidden px-5 py-5 flex items-center justify-between">
-        <AlignLeft />
-        <p>ARTSY.</p>
-        <ul className="flex items-center gap-x-5">
-          <li><Search className="size-5"/></li>
-          <li><ShoppingCart className="size-5"/></li>
+    <nav
+      className={`md:hidden px-5 py-5 transition-all duration-300 ease-in-out transform-gpu space-y-5 ${
+        toggleNav
+          ? "fixed top-0 bottom-0 left-0 w-full z-30 bg-inherit backdrop-blur-md shadow-lg"
+          : ""
+      }`}
+    >
+      <div className=" flex items-center justify-between">
+        <button
+          onClick={() => setToggleNav(!toggleNav)}
+          className="p-2 rounded-md hover:bg-neutral-800 transition"
+        >
+          {toggleNav ? (
+            <X className="size-10" />
+          ) : (
+            <AlignLeft className="size-6" />
+          )}
+        </button>
+
+        <p className="text-xl font-bold">ARTSY.</p>
+
+        <ul className="flex items-center gap-x-4">
+          <li className="p-2 rounded-md hover:bg-neutral-800 transition">
+            <Search className="size-5" />
+          </li>
+          <li className="p-2 rounded-md hover:bg-neutral-800 transition">
+            <ShoppingCart className="size-5" />
+          </li>
         </ul>
       </div>
+
+      <AnimatePresence>
+        {toggleNav && (
+          <motion.ul
+            key="nav-dropdown"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={navVariants}
+            transition={{ duration: 0.3 }}
+            className="space-y-5 text-2xl mt-20"
+          >
+            {NavItems.map(({ active, href, title }) => (
+              <li key={title}>
+                <Link
+                  href={href}
+                  onClick={() => setToggleNav(!toggleNav)}
+                  className={`block py-4 px-1 font-medium transition-all duration-200 relative
+                    ${
+                      active
+                        ? "dark:text-white font-semibold rounded pl-3 bg-[#3341C1]"
+                        : "dark:text-gray-500 hover:text-white"
+                    }`}
+                >
+                  {title}
+                </Link>
+              </li>
+            ))}
+            <motion.button  key="nav-dropdown"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={navVariants}
+            transition={{ duration: 0.3, delay: 0.3 }} className="absolute bottom-10 right-10 dark:bg-[#3341C1] shadown rounded-full p-4">
+              <MessageSquare className="size-10" fill="white" />
+            </motion.button>
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

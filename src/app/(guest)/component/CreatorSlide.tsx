@@ -49,20 +49,20 @@ const CreatorSlide = () => {
   }, [activeSlide.length]);
 
   return (
-    <div className="relative h-[59vh] md:h-[85vh] max-w-6xl mx-auto">
+    <div className="relative h-[59vh] md:h-[85vh] max-w-6xl md:pt-20 mx-auto">
       {activeSlide.map(({ title, content, active }) => (
         <div
           key={title}
-          className={`${active ? "space-y-5 md:space-y-40" : "hidden"}`}
+          className={`${active ? "space-y-5 md:space-y-20" : "hidden"}`}
         >
-          <h2 className="max-sm:pt-10 font-bold text-xl md:text-5xl leading-[50px] max-w-60 md:max-w-lg">
+          <h2 className="max-sm:pt-10 font-bold text-xl md:text-5xl md:leading-[50px] max-w-60 md:max-w-lg">
             {title}
           </h2>
           <p className="max-w-6xl text-sm md:text-2xl font-light">{content}</p>
         </div>
       ))}
-      <div className="z-10 inline-block absolute -bottom-32 md:bottom-20 right-0 md:right-52 w-[55vw] h-[55vh] md:w-[20vw] md:h-[20vh] bg-[url('/images/1985.png')] bg-no-repeat bg-center bg-contain" />
-      <div className="z-10 inline-block absolute top-20 right-4 md:top-12 md:right-20 w-[45vh] h-[60vh] md:w-[65vw] md:h-[85vh] bg-[url('/images/creator.png')] bg-no-repeat bg-center bg-contain" />
+      <div className="z-10 inline-block absolute -bottom-32 md:bottom-10 right-0 md:right-60 w-[55vw] h-[55vh] md:w-[20vw] md:h-[20vh] bg-[url('/images/1985.png')] bg-no-repeat bg-center bg-contain" />
+      <div className="z-10 inline-block absolute -bottom-16 right-0 md:top-32 md:right-10 w-[45vh] h-[50vh] md:w-[80vw] md:h-[75vh] bg-[url('/images/creator.png')] bg-no-repeat bg-center bg-contain" />
       <div className="absolute top-0 right-0">
         <ul className="flex flex-wrap md:flex-col relative gap-3 md:gap-5 font-medium text-xs md:text-2xl">
           {["Editorials", "Fashion", "Lifestyle", "Blueprint"].map(

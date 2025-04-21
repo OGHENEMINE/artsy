@@ -55,9 +55,9 @@ const Slider = () => {
           {["01", "02", "03", "04"].map((item, index) => (
             <div
               key={index}
-              className="flex-none basis-[100%] h-full bg-[url('/images/slider1.png')] bg-cover bg-center"
+              className="md:p-5 flex-none basis-[100%] h-full bg-[url('/images/slider1.png')] bg-cover bg-center"
             >
-              <div className="p-2 md:p-0 flex flex-col md:flex-row h-full items-center md:items-end justify-between">
+              <div className="p-2 md:p-0 flex flex-col md:flex-row h-full gap-y-5 justify-center items-center md:items-end md:justify-between">
                 <div className="flex items-center gap-x-2 max-w-2xl text-xs">
                   <span className="text-3xl md:text-6xl">{item}</span>
                   <div className="space-y-4 md:space-y-3">
@@ -74,7 +74,7 @@ const Slider = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex text-sm text-nowrap items-center justify-end md:justify-start gap-x-5 md:gap-x-10">
+                <div className="flex text-sm text-nowrap items-center md:justify-start justify-between gap-x-10 max-sm:w-full max-sm:pl-10">
                   <span className="border-b cursor-pointer">See more</span>
                   <button className="border cursor-pointer border-neutral-400 rounded-md  font-medium p-2">
                     Set a reminder
@@ -86,7 +86,7 @@ const Slider = () => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-3 md:mt-5 px-2">
+      <div className="flex items-center justify-between mt-3 md:mt-5">
         {/* Progress Bar */}
         <div className="relative bg-neutral-800 w-28 md:w-52 h-1.5 md:h-2 rounded-full overflow-hidden">
           <span

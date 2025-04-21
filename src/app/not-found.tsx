@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const NotFound = () => {
-  return (
-    <div>NotFound</div>
-  )
-}
+  return <main className="w-full max-w-6xl mx-auto px-5">NotFound</main>;
+};
 
-export default NotFound
+export default NotFound;

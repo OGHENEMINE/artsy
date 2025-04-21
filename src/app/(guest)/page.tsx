@@ -1,17 +1,17 @@
 "use client";
 import Image from "next/image";
-import ResponsiveCarousel from "./component/carousel/ResponsiveCarousel";
 import { ArrowRight } from "lucide-react";
-import Slider from "./component/Slider";
 import { motion } from "motion/react";
 import CreatorSlide from "./component/CreatorSlide";
+import { HeaderCarousel } from "./component/carousel/HeaderCarousel";
 import FeaturedProducts from "./component/FeaturedProducts";
+import Slider from "./component/Slider";
 
 export default function Home() {
   return (
     <>
       <section className="">
-        <div className="space-y-10 text-center max-w-4xl mx-auto px-5">
+        <div className="space-y-10 text-center w-full max-w-6xl mx-auto px-5">
           <motion.h1
             initial={{
               opacity: 0,
@@ -41,18 +41,18 @@ export default function Home() {
                 delay: 0.5,
               },
             }}
-            className="md:max-w-2xl mx-auto w-full"
+            className="lg:mx-40"
           >
             Flip through more than 10,000 vintage shots, old photograghs,
             historic images and captures seamlessly in one place. Register to
             get top access.
           </motion.p>
         </div>
-        <ResponsiveCarousel />
+        <HeaderCarousel />
       </section>
       <FeaturedProducts />
       <section className="bg-[url('/images/slider-background.png')] bg-cover bg-center my-20 px-5">
-        <div className="max-w-4xl mx-auto py-5">
+        <div className="w-full max-w-6xl mx-auto py-5">
           <div className="relative">
             <h2 className="text-xl md:text-3xl font-medium">
               See Upcoming Auctions and Exhibitions
@@ -68,7 +68,7 @@ export default function Home() {
           <Slider />
         </div>
       </section>
-      <section className="max-w-4xl mx-auto md:px-5">
+      <section className="w-full max-w-6xl mx-auto mb-20">
         <div className="flex items-center justify-between px-5 py-5 border-y border-neutral-800">
           <h2 className="md:text-2xl font-medium">Explore marketplace</h2>
           <button className="p-2 md:p-3 rounded-full border dark:text-gray-400 dark:border-neutral-800 focus:ring">
@@ -82,10 +82,10 @@ export default function Home() {
           </button>
         </div>
       </section>
-      <section className="z-0 bg-[url('/images/creator-slider-bg.png')] py-5 md:pt-20 px-5 bg-cover bg-center dark:text-neutral-900">
+      <section className="z-0 bg-[url('/images/creator-slider-bg.png')] py-5 px-5 bg-cover bg-center dark:text-neutral-900">
         <CreatorSlide />
       </section>
-      <section className="max-w-4xl mx-auto px-5">
+      <section className="w-full max-w-6xl mx-auto px-5">
         <div className="md:border dark:border-neutral-700 pt-12 md:mt-28 md:py-20 md:px-40 md:text-center space-y-4">
           <h2 className="text-3xl">NEWSLETTER</h2>
           <p className="text-sm md:text-lg text-gray-500">
