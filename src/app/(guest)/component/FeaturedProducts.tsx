@@ -5,14 +5,14 @@ import { easeInOut } from "motion";
 
 const FeaturedProducts = () => {
   return (
-    <section className="max-w-4xl mx-auto px-5">
+    <section className="max-w-6xl mx-auto px-5 overflow-hidden">
       <h2 className="mt-10 md:mt-20 pb-4 font-medium text-2xl">
         Featured products
       </h2>
       <motion.div
         initial={{
           opacity: 0,
-          x: 100,
+          x: 10,
         }}
         whileInView={{
           opacity: 1,
@@ -21,15 +21,14 @@ const FeaturedProducts = () => {
         }}
         className="border-t py-10 border-neutral-800 gap-y-5 gap-x-10 grid grid-cols-1 md:grid-cols-2 text-sm"
       >
-        <div className="relative">
+        <div className="relative h-[250px]">
           <Image
-            width={610}
-            height={305}
-            className=""
+            fill
+            className="object-cover md:object-fit max-w-full w-full"
             src="/images/featured-product1.png"
             alt="a lady posing on backdrop"
           />
-          <h4 className="absolute top-3 left-1/2 -translate-x-1/2 text-nowrap text-xl md:text-2xl font-bold md:font-medium mb-4 md:hidden">
+          <h4 className="absolute top-3 left-1/2 -translate-x-1/2 text-nowrap  text-xl md:text-2xl font-bold md:font-medium mb-4 md:hidden">
             Boolean Egyptian
           </h4>
 
@@ -85,7 +84,7 @@ const FeaturedProducts = () => {
       <motion.div
         initial={{
           opacity: 0,
-          x: -100,
+          x: -10,
         }}
         whileInView={{
           opacity: 1,
@@ -134,14 +133,14 @@ const FeaturedProducts = () => {
             </button>
           </div>
         </div>
-        <div className="relative order-1 md:order-2">
+        <div className="relative order-1 md:order-2 h-[250px]">
           <Image
-            width={610}
-            height={305}
+            fill
+            className="object-cover md:object-fit max-w-full w-full"
             src="/images/featured-product2.png"
             alt="an image of hlygerph"
           />
-          <h4 className="absolute top-3 left-1/2 -translate-x-1/2 text-nowrap text-xl md:text-2xl font-bold md:font-medium mb-4 md:hidden">
+          <h4 className="absolute top-3 left-1/2 -translate-x-1/2 text-nowrap  text-xl md:text-2xl font-bold md:font-medium mb-4 md:hidden">
             Are We There Yet?
           </h4>
           <button
@@ -156,7 +155,7 @@ const FeaturedProducts = () => {
       <motion.div
         initial={{
           opacity: 0,
-          x: 100,
+          x: 10,
         }}
         whileInView={{
           opacity: 1,
@@ -165,14 +164,15 @@ const FeaturedProducts = () => {
         }}
         className="pt-10 gap-y-5 gap-x-10 grid grid-cols-1 md:grid-cols-2 text-sm "
       >
-        <div className="relative">
+        <div className="relative h-[250px]">
           <Image
-            width={610}
-            height={305}
+            fill
+            className="object-cover md:object-fit max-w-full w-full"
             src="/images/featured-product3.png"
             alt="a lady posing on backdrop"
+            priority
           />
-          <h4 className="absolute top-3 left-1/2 -translate-x-1/2 text-nowrap text-xl md:text-2xl font-bold md:font-medium mb-4 md:hidden">
+          <h4 className="absolute top-3 left-1/2 -translate-x-1/2 text-nowrap  text-xl md:text-2xl font-bold md:font-medium mb-4 md:hidden">
             Oloibiri 1997
           </h4>
           <button
