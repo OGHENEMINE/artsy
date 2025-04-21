@@ -1,14 +1,17 @@
 "use client";
 import {
-  AlignLeft, MessageSquare,
+  AlignLeft,
+  MessageSquare,
   Search,
   ShoppingCart,
-  X
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAppSelector } from "@/app/store/hook";
+import { cartSelector } from "@/app/store/cartSlice";
 
 const navVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -19,6 +22,7 @@ const navVariants = {
 const MobileTopNav = () => {
   const [toggleNav, setToggleNav] = useState(false);
   const path = usePathname();
+  const { cartItems} = useAppSelector(cartSelector);
 
   const NavItems = [
     {
@@ -45,7 +49,7 @@ const MobileTopNav = () => {
 
   return (
     <nav
-      className={`md:hidden px-5 py-5 transition-all duration-300 ease-in-out transform-gpu space-y-5 ${
+      className={`md:hidden p-5 transition-all duration-300 ease-in-out transform-gpu space-y-5 ${
         toggleNav
           ? "fixed top-0 bottom-0 left-0 w-full z-30 bg-inherit backdrop-blur-md shadow-lg"
           : ""
@@ -65,12 +69,15 @@ const MobileTopNav = () => {
 
         <p className="text-xl font-bold">ARTSY.</p>
 
-        <ul className="flex items-center gap-x-4">
+        <ul className="flex items-center gap-x-2">
           <li className="p-2 rounded-md hover:bg-neutral-800 transition">
-            <Search className="size-5" />
+            <Search className="size-6" />
           </li>
-          <li className="p-2 rounded-md hover:bg-neutral-800 transition">
-            <ShoppingCart className="size-5" />
+          <li className="relative p-2 rounded-md hover:bg-neutral-800 transition">
+            <ShoppingCart className="size-6" />
+            {cartItems.length > 0 && (
+              <span className="inline-block bg-red-600 rounded-full w-3 h-3 absolute top-1.5 right-1" />
+            )}
           </li>
         </ul>
       </div>
@@ -83,7 +90,7 @@ const MobileTopNav = () => {
             animate="visible"
             exit="exit"
             variants={navVariants}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="space-y-5 text-2xl mt-20"
           >
             {NavItems.map(({ active, href, title }) => (
@@ -102,13 +109,16 @@ const MobileTopNav = () => {
                 </Link>
               </li>
             ))}
-            <motion.button  key="nav-dropdown"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={navVariants}
-            transition={{ duration: 0.3, delay: 0.3 }} className="absolute bottom-10 right-10 dark:bg-[#3341C1] shadown rounded-full p-4">
-              <MessageSquare className="size-10" fill="white" />
+            <motion.button
+              key="nav-dropdown"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={navVariants}
+              transition={{ duration: 0.2, delay: 0.3 }}
+              className="absolute bottom-10 right-10 dark:bg-[#3341C1] shadown rounded-full p-3"
+            >
+              <MessageSquare className="size-8" fill="white" />
             </motion.button>
           </motion.ul>
         )}

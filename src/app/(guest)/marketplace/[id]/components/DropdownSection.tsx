@@ -1,8 +1,8 @@
-import { productInterface } from "@/interface";
+import { ProductInterface } from "@/lib/interface";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const DropdownSection = ({ product }: { product: productInterface }) => {
+const DropdownSection = ({ product }: { product: ProductInterface }) => {
   const [openDropdown, setOpenDropdown] = useState([
     {
       id: 1,

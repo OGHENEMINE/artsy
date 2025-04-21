@@ -1,4 +1,6 @@
-const ProductList = [
+import { ProductInterface } from "@/lib/interface";
+
+const ProductList: ProductInterface[] = [
   {
     id: "9da0dbc1-c956-4417-a113-439e7cede933",
     name: "Autumn Leaves #304",
@@ -9,7 +11,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 5417,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-EXo4TTqHzBo",
   },
   {
@@ -35,7 +37,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 8337,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1503602642458-232111445657",
   },
   {
@@ -48,7 +50,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "auction",
     total_views: 4245,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1542096342-45be493631a0",
   },
   {
@@ -61,7 +63,7 @@ const ProductList = [
     collection: "Ocean Views",
     listing_type: "auction",
     total_views: 2982,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1503602642458-232111445657",
   },
   {
@@ -87,7 +89,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "coming_soon",
     total_views: 7947,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
   },
   {
@@ -100,7 +102,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "coming_soon",
     total_views: 2546,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1499084732479-de2c02d45fc4",
   },
   {
@@ -126,7 +128,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "coming_soon",
     total_views: 1244,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -165,7 +167,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "coming_soon",
     total_views: 5624,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -178,7 +180,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 4708,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1542096342-45be493631a0",
   },
   {
@@ -217,7 +219,7 @@ const ProductList = [
     collection: "Ocean Views",
     listing_type: "auction",
     total_views: 6753,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -230,7 +232,7 @@ const ProductList = [
     collection: "Autumn Bliss",
     listing_type: "auction",
     total_views: 7351,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -243,7 +245,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "auction",
     total_views: 3874,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -256,7 +258,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "auction",
     total_views: 5237,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -269,7 +271,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "coming_soon",
     total_views: 4321,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
   },
   {
@@ -282,7 +284,7 @@ const ProductList = [
     collection: "Autumn Bliss",
     listing_type: "coming_soon",
     total_views: 7820,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -295,7 +297,7 @@ const ProductList = [
     collection: "Autumn Bliss",
     listing_type: "auction",
     total_views: 1913,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1448220141049-7f8eafdd9501",
   },
   {
@@ -308,7 +310,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 3563,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1448220141049-7f8eafdd9501",
   },
   {
@@ -321,7 +323,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "auction",
     total_views: 6050,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
   },
   {
@@ -334,7 +336,7 @@ const ProductList = [
     collection: "Ocean Views",
     listing_type: "auction",
     total_views: 9028,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -360,7 +362,7 @@ const ProductList = [
     collection: "Autumn Bliss",
     listing_type: "auction",
     total_views: 5817,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -373,7 +375,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "auction",
     total_views: 7723,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -399,7 +401,7 @@ const ProductList = [
     collection: "Ocean Views",
     listing_type: "coming_soon",
     total_views: 6386,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1499084732479-de2c02d45fc4",
   },
   {
@@ -412,7 +414,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "auction",
     total_views: 6218,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -425,7 +427,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 9651,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
   },
   {
@@ -451,7 +453,7 @@ const ProductList = [
     collection: "Autumn Bliss",
     listing_type: "coming_soon",
     total_views: 9653,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
   },
   {
@@ -464,7 +466,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 8586,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -477,7 +479,7 @@ const ProductList = [
     collection: "Ocean Views",
     listing_type: "coming_soon",
     total_views: 2437,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
   },
   {
@@ -490,7 +492,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "auction",
     total_views: 544,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1542096342-45be493631a0",
   },
   {
@@ -503,7 +505,7 @@ const ProductList = [
     collection: "Autumn Bliss",
     listing_type: "auction",
     total_views: 8014,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1503602642458-232111445657",
   },
   {
@@ -516,7 +518,7 @@ const ProductList = [
     collection: "Ocean Views",
     listing_type: "auction",
     total_views: 3362,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -542,7 +544,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "coming_soon",
     total_views: 1973,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1448220141049-7f8eafdd9501",
   },
   {
@@ -555,7 +557,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "coming_soon",
     total_views: 5169,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
   },
   {
@@ -594,7 +596,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "coming_soon",
     total_views: 1227,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1508297475805-8f2c57d3a574",
   },
   {
@@ -607,7 +609,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "coming_soon",
     total_views: 6836,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1503602642458-232111445657",
   },
   {
@@ -620,7 +622,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "auction",
     total_views: 2178,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
   },
   {
@@ -633,7 +635,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "auction",
     total_views: 9475,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1448220141049-7f8eafdd9501",
   },
   {
@@ -646,7 +648,7 @@ const ProductList = [
     collection: "Autumn Bliss",
     listing_type: "coming_soon",
     total_views: 2768,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1481277542470-605612bd2d61",
   },
   {
@@ -685,7 +687,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "coming_soon",
     total_views: 1205,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -698,7 +700,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 8206,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
   },
   {
@@ -750,7 +752,7 @@ const ProductList = [
     collection: "Urban Chic",
     listing_type: "auction",
     total_views: 9917,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1504198458649-3128b932f49b",
   },
   {
@@ -776,7 +778,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "auction",
     total_views: 6216,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1506748686217-1b51b681b5ea",
   },
   {
@@ -789,7 +791,7 @@ const ProductList = [
     collection: "Nature Reimagined",
     listing_type: "coming_soon",
     total_views: 9467,
-    price: "Coming Soon",
+    price: null,
     image: "https://images.unsplash.com/photo-1481277542470-605612bd2d61",
   },
   {
@@ -802,7 +804,7 @@ const ProductList = [
     collection: "Mountain Views",
     listing_type: "auction",
     total_views: 3170,
-    price: "Highest Bid",
+    price: null,
     image: "https://images.unsplash.com/photo-1521747116042-5a810fda9664",
   }
 ];

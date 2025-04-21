@@ -3,30 +3,54 @@ import BreadCrumb from "../components/BreadCrumb";
 import { useParams } from "next/navigation";
 import ProductList from "@/app/data/products";
 import Image from "next/image";
-import { productInterface } from "@/interface";
-import {
-  ArrowRight, Minus,
-  Plus
-} from "lucide-react";
+import { ArrowRight, Minus, Plus } from "lucide-react";
 import ProductCardButton from "../components/ProductCardButton";
 import DropdownSection from "./components/DropdownSection";
-import currencyFormatter from "@/app/helpers/currencyFormatter";
+import currencyFormatter from "@/app/utils/currencyFormatter";
 import CollectionSlider from "./components/CollectionSlider";
 import Link from "next/link";
 import NotFound from "@/app/not-found";
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/app/store/hook";
+import { addToWishlist, cartSelector } from "@/app/store/cartSlice";
+import { setAlert } from "@/app/store/alertSlice";
+import { ProductInterface } from "@/lib/interface";
 
 const ProductPage = () => {
   const { id } = useParams();
+  const dispatch = useAppDispatch();
+  const { favourite } = useAppSelector(cartSelector);
+  const [qty, setQty] = useState(1);
   const product = ProductList.find(
     (item) => item.id === id
-  ) as productInterface;
+  ) as ProductInterface;
 
   if (!product) {
     return NotFound();
   }
   const similarCollection = ProductList.filter(
     (item) => item.collection === product.collection
-  ) as productInterface[];
+  ) as ProductInterface[];
+
+  const handleAddToWishlist = (id: string) => {
+    if (!favourite.includes(id)) {
+      dispatch(addToWishlist(id));
+      dispatch(
+        setAlert({
+          message: "Product has been added to wishlist",
+          type: "success",
+        })
+      );
+    } else {
+      dispatch(addToWishlist(id));
+      dispatch(
+        setAlert({
+          message: "Product has been removed from wishlist",
+          type: "success",
+        })
+      );
+    }
+  };
 
   return (
     <>
@@ -64,6 +88,9 @@ const ProductPage = () => {
               {product.listing_type != "coming_soon" && (
                 <div className="flex items-center gap-x-5">
                   <button
+                    onClick={() => {
+                      setQty((prev) => Math.max(1, prev - 1));
+                    }}
                     className={`p-2 rounded cursor-pointer ${
                       product.listing_type === "auction"
                         ? "bg-rose-500 dark:hover:bg-rose-600"
@@ -73,12 +100,12 @@ const ProductPage = () => {
                     <Minus className="size-5" />
                   </button>
 
-                  <input
-                    type="text"
-                    className="dark:border-neutral-800 border h-10 w-10 text-white"
-                  />
+                  <p className="flex items-center justify-center text-lg dark:border-neutral-800 border h-10 w-10 text-white">
+                    {qty}
+                  </p>
 
                   <button
+                    onClick={() => setQty(qty + 1)}
                     className={`p-2 rounded cursor-pointer ${
                       product.listing_type === "auction"
                         ? "bg-rose-500 dark:hover:bg-rose-600"
@@ -90,7 +117,15 @@ const ProductPage = () => {
                 </div>
               )}
               <ProductCardButton
+                handleAddToWishlist={handleAddToWishlist}
                 className="mb-5 py-3"
+                item={{
+                  id: product.id,
+                  image: product.image,
+                  name: product.name,
+                  price: product.price,
+                  qty: qty,
+                }}
                 type={product.listing_type}
               />
             </div>
@@ -100,11 +135,14 @@ const ProductPage = () => {
       </section>
 
       <section className="w-full max-w-6xl mx-auto px-5 mt-20">
-        <CollectionSlider products={similarCollection} />
+        <CollectionSlider
+          handleAddToWishlist={handleAddToWishlist}
+          products={similarCollection}
+        />
         <div className="mt-20 flex items-center justify-center">
           <Link
             href="/marketplace"
-            className="border cursor-pointer flex items-center gap-x-2 dark:border-neutral-700 text-sm rounded-md py-4 px-10"
+            className="max-sm:w-full border cursor-pointer flex items-center max-sm:justify-center gap-x-2 dark:border-neutral-700 md:text-sm rounded-md py-4 px-10"
           >
             Explore all <ArrowRight className="size-6" strokeWidth={1} />
           </Link>

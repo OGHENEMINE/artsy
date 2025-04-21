@@ -1,11 +1,17 @@
 "use client";
-import { productInterface } from "@/interface";
 import useEmblaCarousel from "embla-carousel-react";
 import CollectionCard from "./CollectionCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback } from "react";
+import { ProductInterface } from "@/lib/interface";
 
-const CollectionSlider = ({ products }: { products: productInterface[] }) => {
+const CollectionSlider = ({
+  products,
+  handleAddToWishlist,
+}: {
+  products: ProductInterface[];
+  handleAddToWishlist: (id: string) => void;
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false });
 
   const scrollPrev = useCallback(() => {
@@ -49,15 +55,19 @@ const CollectionSlider = ({ products }: { products: productInterface[] }) => {
 
       <div className="relative overflow-hidden mt-10" ref={emblaRef}>
         <div className=" flex items-center gap-5 max-w-6xl mx-auto w-full">
-          {products.map((item: productInterface) => (
-            <CollectionCard key={item.id} item={item} />
+          {products.map((item: ProductInterface) => (
+            <CollectionCard
+              handleAddToWishlist={handleAddToWishlist}
+              key={item.id}
+              item={item}
+            />
           ))}
         </div>
-        <div className="md:hidden absolute z-10 inset-0 flex items-center justify-between">
+        <div className="md:hidden flex items-center justify-between">
           <button
             // disabled={!emblaApi?.canScrollPrev()}
             onClick={scrollPrev}
-            className="border dark:border-neutral-700 dark:text-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out dark:bg-neutral-800 cursor-pointer rounded-full p-4"
+            className="absolute top-1/2 -translate-y-1/2 left-0 border dark:border-neutral-900 dark:bg-gray-500 dark:text-neutral-900 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out cursor-pointer rounded-full p-2"
           >
             <ChevronLeft className="pointer-events-none size-6" />
           </button>
@@ -65,7 +75,7 @@ const CollectionSlider = ({ products }: { products: productInterface[] }) => {
           <button
             // disabled={!emblaApi?.canScrollNext()}
             onClick={scrollNext}
-            className="border dark:border-neutral-700 dark:text-neutral-500 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out dark:bg-neutral-800 cursor-pointer rounded-full p-4"
+            className="absolute top-1/2 -translate-y-1/2 right-0 border dark:border-neutral-900 dark:bg-gray-500 dark:text-neutral-900 dark:hover:border-neutral-600 transition-all duration-300 ease-in-out cursor-pointer rounded-full p-2"
           >
             <ChevronRight className="pointer-events-none size-6" />
           </button>

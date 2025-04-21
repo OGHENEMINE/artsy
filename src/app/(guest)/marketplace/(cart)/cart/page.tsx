@@ -1,29 +1,18 @@
-import { ArrowRight, Package } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+"use client";
+import { useCheckoutContext } from "@/app/context/CheckoutContext";
+import CartNav from "../components/CartNav";
+import ConfirmModal from "@/components/ConfirmModal";
 
-const page = () => {
+const Index = () => {
+  const { page, activeStep } = useCheckoutContext();
+
   return (
-    <div className="flex flex-col items-center justify-center gap-4 text-center">
-      <Package size={120} strokeWidth={0.5} className="text-neutral-700" />
-
-      <h2 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
-        Your cart is empty
-      </h2>
-
-      <p className="text-sm text-neutral-500 dark:text-neutral-400 ">
-        Looks like you haven’t added anything yet.
-      </p>
-
-      <Link
-        href="/marketplace"
-        className="flex items-center gap-x-2 mt-4 px-4 py-2 rounded-md text-sm font-bold bg-black text-white hover:bg-neutral-800 transition dark:bg-white dark:text-black dark:hover:bg-neutral-200"
-      >
-        <ArrowRight className="size-5"/>
-        Continue Shopping
-      </Link>
+    <div className="w-full max-w-6xl mx-auto px-5 space-y-10">
+      <ConfirmModal />
+      {activeStep < 3 && <CartNav />}
+      {page}
     </div>
   );
 };
 
-export default page;
+export default Index;

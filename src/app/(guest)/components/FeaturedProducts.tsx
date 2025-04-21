@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
       <motion.div
         initial={{
           opacity: 0,
-          x: 10,
+          x: 20,
         }}
         whileInView={{
           opacity: 1,
@@ -84,7 +84,7 @@ const FeaturedProducts = () => {
       <motion.div
         initial={{
           opacity: 0,
-          x: -10,
+          x: -20,
         }}
         whileInView={{
           opacity: 1,
@@ -155,7 +155,7 @@ const FeaturedProducts = () => {
       <motion.div
         initial={{
           opacity: 0,
-          x: 10,
+          x: 20,
         }}
         whileInView={{
           opacity: 1,

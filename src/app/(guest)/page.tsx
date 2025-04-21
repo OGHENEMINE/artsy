@@ -2,10 +2,11 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
-import CreatorSlide from "./component/CreatorSlide";
-import { HeaderCarousel } from "./component/carousel/HeaderCarousel";
-import FeaturedProducts from "./component/FeaturedProducts";
-import Slider from "./component/Slider";
+import Slider from "./components/Slider";
+import FeaturedProducts from "./components/FeaturedProducts";
+import { HeaderCarousel } from "./components/carousel/HeaderCarousel";
+import CreatorSlide from "./components/CreatorSlide";
+
 
 export default function Home() {
   return (
