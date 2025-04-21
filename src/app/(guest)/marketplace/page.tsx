@@ -1,14 +1,12 @@
+"use client";
+import { useSearchParams } from "next/navigation";
 import LargeFilterNav from "./components/FilterNav.tsx/LargeFilterNav";
 import ResponsiveMarketNav from "./components/TopNav/ResponsiveMarketNav";
 import Products from "./Products";
 
-type Props = {
-  searchParams?: {
-    page?: string;
-  };
-};
-const marketplace = ({ searchParams }: Props) => {
-  const currentPage = parseInt(searchParams?.page || "1");
+const Marketplace = () => {
+  const searchParams = useSearchParams();
+  const currentPage = parseInt(searchParams?.get('page') || "1");
   const limit = 9;
 
   return (
@@ -28,4 +26,4 @@ const marketplace = ({ searchParams }: Props) => {
   );
 };
 
-export default marketplace;
+export default Marketplace;
